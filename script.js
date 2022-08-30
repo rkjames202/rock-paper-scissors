@@ -1,4 +1,10 @@
 
+/**
+ * Picks a number between 1 and 3 and sets computer's choice
+ * to a corresponding value
+ * 
+ * @return choice computer makes
+ */
 function getComputerChoice(){
     //Get a random number between 1 and 3
     const randomNum = Math.floor(Math.random() * 3) + 1;
@@ -16,6 +22,45 @@ function getComputerChoice(){
 
 }
 
+/**
+ * Simulates a round between player and computer
+ * 
+ * @param playerSelection - user inputted selection 
+ * @param computerSelection - computer generated selection
+ * @return String declaring the winner of the round
+ */
+function playRound(playerSelection, computerSelection){
+      
+    //Convert both selections so they have same casing
+    let computerChoice = computerSelection.toUpperCase();
+    let playerChoice = playerSelection.toUpperCase();
+    
+    //If computer selects rock, see if player selected scissors
+    if(computerChoice === 'ROCK' && playerChoice === 'Scissors'){
+        
+        return printWinner('lose', computerChoice, playerChoice);
+    
+    //If computer selects paper, see if player selected rock
+    }else if (computerChoice === 'PAPER' && playerChoice === 'ROCK'){
+        
+        return printWinner('lose', computerChoice, playerChoice);
+    
+    //If computer selects scissors, see if player selected paper
+    }else if (computerChoice === 'Scissors' && playerChoice === 'PAPER'){
 
+        return printWinner('lose', computerChoice, playerChoice);
+
+    //If computer and player have the same choice
+    }else if (computerChoice === playerChoice){
+        
+        return printWinner('tie', computerChoice, playerChoice);
+    
+    }
+
+    //If computer doesn't win player does
+    return printWinner('win');
+
+    //Commit this change once done
+}
 
 
