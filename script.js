@@ -31,9 +31,9 @@ function getComputerChoice(){
  */
 function playRound(playerSelection, computerSelection){
       
-    //Convert both selections so they have same casing
-    let computerChoice = computerSelection.toUpperCase();
-    let playerChoice = playerSelection.toUpperCase();
+    //Convert both selections so first letter is capitalized 
+    let computerChoice = computerSelection[0].toUpperCase() + computerSelection.slice(1).toUpperCase();
+    let playerChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toUpperCase();
     
     //If computer selects rock, see if player selected scissors
     if(computerChoice === 'ROCK' && playerChoice === 'Scissors'){
@@ -60,7 +60,7 @@ function playRound(playerSelection, computerSelection){
     //If computer doesn't win player does
     return printWinner('win');
 
-    //Commit this change once done
 }
+
 
 
