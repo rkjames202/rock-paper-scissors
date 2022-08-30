@@ -27,40 +27,39 @@ function getComputerChoice(){
  * 
  * @param playerSelection - user inputted selection 
  * @param computerSelection - computer generated selection
- * @return String declaring the winner of the round
+ * @return String declaring the outcome of the round
  */
 function playRound(playerSelection, computerSelection){
       
     //Convert both selections so first letter is capitalized 
-    let computerChoice = computerSelection[0].toUpperCase() + computerSelection.slice(1).toUpperCase();
-    let playerChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toUpperCase();
+    let computerChoice = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase();
+    let playerChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
     
     //If computer selects rock, see if player selected scissors
-    if(computerChoice === 'ROCK' && playerChoice === 'Scissors'){
+    if(computerChoice === 'Rock' && playerChoice === 'Scissors'){
         
-        return printWinner('lose', computerChoice, playerChoice);
+        return `You Lose! ${computerChoice} beats ${playerChoice}`;
     
     //If computer selects paper, see if player selected rock
-    }else if (computerChoice === 'PAPER' && playerChoice === 'ROCK'){
+    }else if (computerChoice === 'Paper' && playerChoice === 'Rock'){
         
-        return printWinner('lose', computerChoice, playerChoice);
+        return `You Lose! ${computerChoice} beats ${playerChoice}`;
     
     //If computer selects scissors, see if player selected paper
-    }else if (computerChoice === 'Scissors' && playerChoice === 'PAPER'){
+    }else if (computerChoice === 'Scissors' && playerChoice === 'Paper'){
 
-        return printWinner('lose', computerChoice, playerChoice);
+        return `You Lose! ${computerChoice} beats ${playerChoice}`;
 
     //If computer and player have the same choice
     }else if (computerChoice === playerChoice){
         
-        return printWinner('tie', computerChoice, playerChoice);
+        return `It's a tie! You both pick ${playerChoice}`;
     
     }
 
     //If computer doesn't win player does
-    return printWinner('win');
+        return `You Win! ${playerChoice} beats ${computerChoice}`;
 
 }
-
 
 
