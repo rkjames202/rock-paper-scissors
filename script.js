@@ -27,7 +27,7 @@ function getComputerChoice(){
  * 
  * @param playerSelection - user inputted selection 
  * @param computerSelection - computer generated selection
- * @return String declaring the outcome of the round
+ * @return the outcome of the round
  */
 function playRound(playerSelection, computerSelection){
       
@@ -53,7 +53,7 @@ function playRound(playerSelection, computerSelection){
     //If computer and player have the same choice
     }else if (computerChoice === playerChoice){
         
-        return `It's a tie! You both pick ${playerChoice}`;
+        return `It's a Tie! You both pick ${playerChoice}`;
     
     }
 
@@ -62,4 +62,31 @@ function playRound(playerSelection, computerSelection){
 
 }
 
+function game(){
+    
+
+
+}
+
+
+function getOutcome(outcomeMessage){
+
+    //convert string to uppercase so casing won't matter
+    outcomeCheck = outcomeMessage.toLowerCase();
+
+    //Check if the outcome message contains win, lose, or tie
+    //Return winner or if round ends in tie 
+    if (outcomeMessage.includes('win')){
+        
+        return 'player';
+    
+    } else if (outcomeMessage.includes('lose')){
+
+        return 'computer';
+
+    } 
+
+    //No winner? Let program know it's a tie
+        return 'tie';
+}
 
