@@ -78,6 +78,8 @@ function getPlayerChoice(){
         playerChoice = prompt("Please enter valid choice. Rock, Paper, or Scissors?").toUpperCase();
    
     }
+
+    return playerChoice;
 }
 
 /**
@@ -115,13 +117,15 @@ function validatePlayerChoice(playerChoice){
     //convert string to uppercase so casing won't matter
     outcomeCheck = outcomeMessage.toLowerCase();
 
+
+
     //Check if the outcome message contains win, lose, or tie
     //Return winner or if round ends in tie 
-    if (outcomeMessage.includes('win')){
+    if (outcomeCheck.includes('win')){
         
         return 'player';
     
-    } else if (outcomeMessage.includes('lose')){
+    } else if (outcomeCheck.includes('lose')){
 
         return 'computer';
 
@@ -136,9 +140,9 @@ function validatePlayerChoice(playerChoice){
  * @param computerScore - computer's score
  * @param playerScore  - player's score
  */
-function printWinner(computerScore, playerScore){
+function printWinner(playerScore, computerScore){
 
-    //Test for winner
+    //Test for winner or if there is tie
     if (playerScore > computerScore){
         
         console.log(`Congratulations, You won! 
@@ -161,6 +165,50 @@ function printWinner(computerScore, playerScore){
 
 }
 
+/**
+ * Simulates a 5 round game of rock, paper, scissors
+ */
+function game(){
+
+    //Variables to keep track of scores
+    let playerScore = 0;
+    let computerScore = 0;
+
+    //Variable to get possible winner
+    let outcome;
+
+    //Message printed to user after each round
+    let outcomeMessage;
+
+    //5 round game
+    for (let i = 0; i < 5; i++){
+
+        //Gets message from playRound() using the get choice functions
+        outcomeMessage = playRound(getPlayerChoice(), getComputerChoice());
+        //Prints message to user
+        console.log(outcomeMessage);
+
+        //Gets the possible winner of round
+        outcome = getOutcome(outcomeMessage);
+
+        //Increments score based on outcome, if there is tie no one gets points
+        if (outcome === 'player'){
+
+            playerScore++;
+
+        }else if(outcome === 'computer'){
+
+            computerScore++;
+        }    
+
+    }
+
+    //Prints result of the game
+    printWinner(playerScore, computerScore);
+
+}
+
+game();
 
 
 
