@@ -7,9 +7,7 @@
 function getComputerChoice(){
     //Get a random number between 1 and 3
     const randomNum = Math.floor(Math.random() * 3) + 1;
-
-    let choice = "";
-    
+   
     //Use random number to determine computer choice
     if (randomNum === 1){
         return 'Rock';
@@ -31,8 +29,10 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
       
     //Convert both selections so first letter is capitalized 
-    let computerChoice = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase();
-    let playerChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+    let computerChoice = computerSelection[0].toUpperCase() + 
+                         computerSelection.slice(1).toLowerCase();
+    let playerChoice = playerSelection[0].toUpperCase() + 
+                       playerSelection.slice(1).toLowerCase();
     
     //Check if computer wins
     if(computerChoice === 'Rock' && playerChoice === 'Scissors'){
@@ -86,7 +86,7 @@ function getPlayerChoice(){
  * Validates user's input
  * 
  * @param playerChoice - user inputted choice
- * @returns boolean if choice is valid or not
+ * @returns if choice is valid or not
  */
 function validatePlayerChoice(playerChoice){
 
@@ -114,7 +114,7 @@ function validatePlayerChoice(playerChoice){
  */
  function getRoundWinner(roundMessage){
 
-    //convert string to uppercase so casing won't matter
+    //convert string to lowercase so casing won't matter
     messageCheck = roundMessage.toLowerCase();
 
 
@@ -176,7 +176,7 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    //Variable to get possible winner
+    //Variable to get outcome of the game
     let outcome;
 
     //Message printed to user after each round
@@ -185,7 +185,7 @@ function game(){
     //5 round game
     for (let i = 0; i < 5; i++){
 
-        //Gets message from playRound() using the get choice functions
+        //Gets message from playRound() using the get choice functions as params
         roundMessage = playRound(getPlayerChoice(), getComputerChoice());
         //Prints message to user
         console.log(roundMessage);
