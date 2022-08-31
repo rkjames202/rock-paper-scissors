@@ -63,33 +63,6 @@ function playRound(playerSelection, computerSelection){
 }
 
 /**
- * Returns winner of a round or 'tie' if no winner
- * 
- * @param outcomeMessage - message declaring the outcome of a round
- * @returns the winner if there is one and 'tie' if not
- */
-function getOutcome(outcomeMessage){
-
-    //convert string to uppercase so casing won't matter
-    outcomeCheck = outcomeMessage.toLowerCase();
-
-    //Check if the outcome message contains win, lose, or tie
-    //Return winner or if round ends in tie 
-    if (outcomeMessage.includes('win')){
-        
-        return 'player';
-    
-    } else if (outcomeMessage.includes('lose')){
-
-        return 'computer';
-
-    } 
-
-    //No winner? Let program know it's a tie
-        return 'tie';
-}
-
-/**
  * Prompts user to enter choice between rock, paper, or scissors
  * 
  * @returns - user inputted choice
@@ -130,6 +103,36 @@ function validatePlayerChoice(playerChoice){
        //If none of the above conditions are met, choice is valid
        return validChoice;
 }
+
+/**
+ * Returns winner of a round or 'tie' if no winner
+ * 
+ * @param outcomeMessage - message declaring the outcome of a round
+ * @returns the winner if there is one and 'tie' if not
+ */
+ function getOutcome(outcomeMessage){
+
+    //convert string to uppercase so casing won't matter
+    outcomeCheck = outcomeMessage.toLowerCase();
+
+    //Check if the outcome message contains win, lose, or tie
+    //Return winner or if round ends in tie 
+    if (outcomeMessage.includes('win')){
+        
+        return 'player';
+    
+    } else if (outcomeMessage.includes('lose')){
+
+        return 'computer';
+
+    } 
+
+    //No winner? Let program know it's a tie
+        return 'tie';
+}
+
+
+
 
 
 
