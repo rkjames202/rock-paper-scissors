@@ -62,17 +62,6 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-function game(){
-
-    for (let i = 0; i < 5; i++){
-        playerChoice = getPlayerChoice();
-
-        //playerChoice === undefined || 
-    }
-
-
-}
-
 /**
  * Returns winner of a round or 'tie' if no winner
  * 
@@ -106,8 +95,43 @@ function getOutcome(outcomeMessage){
  * @returns - user inputted choice
  */
 function getPlayerChoice(){
-    return prompt("Enter your choice. Rock, Paper, or Scissors?");
+    
+    //Prompt user to enter choice
+   let playerChoice = prompt("Enter your choice. Rock, Paper, or Scissors?").toUpperCase();
+
+   //While input is not valid, prompt user
+   while (!validatePlayerChoice(playerChoice)){
+        
+        playerChoice = prompt("Please enter valid choice. Rock, Paper, or Scissors?").toUpperCase();
+   
+    }
 }
+
+/**
+ * Validates user's input
+ * 
+ * @param playerChoice - user inputted choice
+ * @returns boolean if choice is valid or not
+ */
+function validatePlayerChoice(playerChoice){
+
+    let validChoice = true;
+
+    //Check if player's input is not empty and is either rock, paper or scissors
+    if(!playerChoice ||
+       (playerChoice != 'ROCK' &&
+       playerChoice !='PAPER' &&
+       playerChoice !='SCISSORS')){
+
+        validChoice = false;
+
+       }
+
+       //If none of the above conditions are met, choice is valid
+       return validChoice;
+}
+
+
 
 
 
