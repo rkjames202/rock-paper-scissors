@@ -1,4 +1,3 @@
-
 /**
  * Picks a number between 1 and 3 and sets computer's choice
  * to a corresponding value
@@ -27,7 +26,7 @@ function getComputerChoice(){
  * 
  * @param playerSelection - user inputted selection 
  * @param computerSelection - computer generated selection
- * @return the outcome of the round
+ * @return message displayed at the end of each round
  */
 function playRound(playerSelection, computerSelection){
       
@@ -35,22 +34,23 @@ function playRound(playerSelection, computerSelection){
     let computerChoice = computerSelection[0].toUpperCase() + computerSelection.slice(1).toLowerCase();
     let playerChoice = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
     
-    //If computer selects rock, see if player selected scissors
+    //Check if computer wins
     if(computerChoice === 'Rock' && playerChoice === 'Scissors'){
         
         return `You Lose! ${computerChoice} beats ${playerChoice}`;
     
-    //If computer selects paper, see if player selected rock
+    
     }else if (computerChoice === 'Paper' && playerChoice === 'Rock'){
         
         return `You Lose! ${computerChoice} beats ${playerChoice}`;
     
-    //If computer selects scissors, see if player selected paper
+    
     }else if (computerChoice === 'Scissors' && playerChoice === 'Paper'){
 
         return `You Lose! ${computerChoice} beats ${playerChoice}`;
 
-    //If computer and player have the same choice
+    
+    //If computer and player have some choice, it's a tie
     }else if (computerChoice === playerChoice){
         
         return `It's a Tie! You both pick ${playerChoice}`;
@@ -109,23 +109,23 @@ function validatePlayerChoice(playerChoice){
 /**
  * Returns winner of a round or 'tie' if no winner
  * 
- * @param outcomeMessage - message declaring the outcome of a round
+ * @param roundMessage - message declaring the outcome of a round
  * @returns the winner if there is one and 'tie' if not
  */
- function getOutcome(outcomeMessage){
+ function getRoundWinner(roundMessage){
 
     //convert string to uppercase so casing won't matter
-    outcomeCheck = outcomeMessage.toLowerCase();
+    messageCheck = roundMessage.toLowerCase();
 
 
 
     //Check if the outcome message contains win, lose, or tie
     //Return winner or if round ends in tie 
-    if (outcomeCheck.includes('win')){
+    if (messageCheck.includes('win')){
         
         return 'player';
     
-    } else if (outcomeCheck.includes('lose')){
+    } else if (messageCheck.includes('lose')){
 
         return 'computer';
 
@@ -137,12 +137,14 @@ function validatePlayerChoice(playerChoice){
 
 /**
  * 
+ * Print result of the game
+ * 
  * @param computerScore - computer's score
  * @param playerScore  - player's score
  */
-function printWinner(playerScore, computerScore){
+function printResult(playerScore, computerScore){
 
-    //Test for winner or if there is tie
+    //Test if player won or if there is tie
     if (playerScore > computerScore){
         
         console.log(`Congratulations, You won! 
@@ -178,18 +180,18 @@ function game(){
     let outcome;
 
     //Message printed to user after each round
-    let outcomeMessage;
+    let roundMessage;
 
     //5 round game
     for (let i = 0; i < 5; i++){
 
         //Gets message from playRound() using the get choice functions
-        outcomeMessage = playRound(getPlayerChoice(), getComputerChoice());
+        roundMessage = playRound(getPlayerChoice(), getComputerChoice());
         //Prints message to user
-        console.log(outcomeMessage);
+        console.log(roundMessage);
 
         //Gets the possible winner of round
-        outcome = getOutcome(outcomeMessage);
+        outcome = getRoundWinner(roundMessage);
 
         //Increments score based on outcome, if there is tie no one gets points
         if (outcome === 'player'){
@@ -204,7 +206,7 @@ function game(){
     }
 
     //Prints result of the game
-    printWinner(playerScore, computerScore);
+    printResult(playerScore, computerScore);
 
 }
 
