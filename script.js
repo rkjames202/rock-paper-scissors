@@ -55,7 +55,7 @@ function playRound(playerSelection, computerSelection){
     }else if (computerChoice === playerChoice){
         
         
-        console.log(`It's a Tie! You both pick ${playerChoice}`);
+        console.log(`It's a Tie! You both picked ${playerChoice}`);
         return 'tie';
     
     }
@@ -77,7 +77,7 @@ function getPlayerChoice(){
    let playerChoice = prompt("Enter your choice. Rock, Paper, or Scissors?").toUpperCase();
 
    //While input is not valid, prompt user
-   while (!validatePlayerChoice(playerChoice)){
+   while (validatePlayerChoice(playerChoice)){
         
         playerChoice = prompt("Please enter valid choice. Rock, Paper, or Scissors?").toUpperCase();
    
@@ -95,18 +95,18 @@ function getPlayerChoice(){
 function validatePlayerChoice(playerChoice){
 
 
-    //Check if player's input is not empty and is either rock, paper or scissors
+    //Check if player's input is not empty and is either 'ROCK', 'PAPER' or 'SCISSORS'
     if(playerChoice &&
        (playerChoice === 'ROCK' ||
        playerChoice ==='PAPER' ||
        playerChoice ==='SCISSORS')){
 
-        return true;
+        return false;
 
        }
 
-       //If none of the above conditions are met, choice is valid
-       return false;
+       //If none of the above conditions are met, choice is invalid
+       return true;
 }
 
 /**
