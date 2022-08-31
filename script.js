@@ -90,20 +90,19 @@ function getPlayerChoice(){
  */
 function validatePlayerChoice(playerChoice){
 
-    let validChoice = true;
 
     //Check if player's input is not empty and is either rock, paper or scissors
-    if(!playerChoice ||
-       (playerChoice != 'ROCK' &&
-       playerChoice !='PAPER' &&
-       playerChoice !='SCISSORS')){
+    if(playerChoice &&
+       (playerChoice === 'ROCK' ||
+       playerChoice ==='PAPER' ||
+       playerChoice ==='SCISSORS')){
 
-        validChoice = false;
+        return true;
 
        }
 
        //If none of the above conditions are met, choice is valid
-       return validChoice;
+       return false;
 }
 
 /**
