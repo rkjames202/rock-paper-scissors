@@ -131,6 +131,35 @@ function validatePlayerChoice(playerChoice){
         return 'tie';
 }
 
+/**
+ * 
+ * @param computerScore - computer's score
+ * @param playerScore  - player's score
+ */
+function printWinner(computerScore, playerScore){
+
+    //Test for winner
+    if (playerScore > computerScore){
+        
+        console.log(`Congratulations, You won! 
+                    Your Score: ${playerScore}
+                    Computer Score ${computerScore}`);
+    
+    } else if (computerScore > playerScore){
+        
+        console.log(`Game Over, You lose!
+                    Your Score: ${playerScore}
+                    Computer Score ${computerScore}`);
+    
+    } else {
+
+        console.log(`Game Over, It's a tie!
+                    Your Score: ${playerScore}
+                    Computer Score ${computerScore}`);
+
+    }
+
+}
 
 
 
