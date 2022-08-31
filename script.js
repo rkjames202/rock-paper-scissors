@@ -63,12 +63,22 @@ function playRound(playerSelection, computerSelection){
 }
 
 function game(){
-    
+
+    for (let i = 0; i < 5; i++){
+        playerChoice = getPlayerChoice();
+
+        //playerChoice === undefined || 
+    }
 
 
 }
 
-
+/**
+ * Returns winner of a round or 'tie' if no winner
+ * 
+ * @param outcomeMessage - message declaring the outcome of a round
+ * @returns the winner if there is one and 'tie' if not
+ */
 function getOutcome(outcomeMessage){
 
     //convert string to uppercase so casing won't matter
@@ -89,4 +99,15 @@ function getOutcome(outcomeMessage){
     //No winner? Let program know it's a tie
         return 'tie';
 }
+
+/**
+ * Prompts user to enter choice between rock, paper, or scissors
+ * 
+ * @returns - user inputted choice
+ */
+function getPlayerChoice(){
+    return prompt("Enter your choice. Rock, Paper, or Scissors?");
+}
+
+
 
