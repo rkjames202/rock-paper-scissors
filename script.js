@@ -20,7 +20,8 @@ function getComputerChoice(){
 }
 
 /**
- * Simulates a round between player and computer
+ * Simulates a round between player and computer, prints result and
+ * returns possible winner
  * 
  * @param playerSelection - user inputted selection 
  * @param computerSelection - computer generated selection
@@ -37,28 +38,31 @@ function playRound(playerSelection, computerSelection){
     //Check if computer wins
     if(computerChoice === 'Rock' && playerChoice === 'Scissors'){
         
-        return `You Lose! ${computerChoice} beats ${playerChoice}`;
-    
+        console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+        return 'computer';
     
     }else if (computerChoice === 'Paper' && playerChoice === 'Rock'){
         
-        return `You Lose! ${computerChoice} beats ${playerChoice}`;
-    
+        console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+        return 'computer';
     
     }else if (computerChoice === 'Scissors' && playerChoice === 'Paper'){
 
-        return `You Lose! ${computerChoice} beats ${playerChoice}`;
-
+        console.log(`You Lose! ${computerChoice} beats ${playerChoice}`);
+        return 'computer';
     
     //If computer and player have some choice, it's a tie
     }else if (computerChoice === playerChoice){
         
-        return `It's a Tie! You both pick ${playerChoice}`;
+        
+        console.log(`It's a Tie! You both pick ${playerChoice}`);
+        return 'tie';
     
     }
 
     //If computer doesn't win player does
-        return `You Win! ${playerChoice} beats ${computerChoice}`;
+        console.log(`You Win! ${playerChoice} beats ${computerChoice}`);
+        return 'player';
 
 }
 
@@ -106,35 +110,6 @@ function validatePlayerChoice(playerChoice){
 }
 
 /**
- * Returns winner of a round or 'tie' if no winner
- * 
- * @param roundMessage - message declaring the outcome of a round
- * @returns the winner if there is one and 'tie' if not
- */
- function getRoundWinner(roundMessage){
-
-    //convert string to lowercase so casing won't matter
-    messageCheck = roundMessage.toLowerCase();
-
-
-
-    //Check if the outcome message contains win, lose, or tie
-    //Return winner or if round ends in tie 
-    if (messageCheck.includes('win')){
-        
-        return 'player';
-    
-    } else if (messageCheck.includes('lose')){
-
-        return 'computer';
-
-    } 
-
-    //No winner? Let program know it's a tie
-        return 'tie';
-}
-
-/**
  * 
  * Print result of the game
  * 
@@ -178,19 +153,11 @@ function game(){
     //Variable to get outcome of the game
     let outcome;
 
-    //Message printed to user after each round
-    let roundMessage;
-
     //5 round game
     for (let i = 0; i < 5; i++){
 
-        //Gets message from playRound() using the get choice functions as params
-        roundMessage = playRound(getPlayerChoice(), getComputerChoice());
-        //Prints message to user
-        console.log(roundMessage);
-
         //Gets the possible winner of round
-        outcome = getRoundWinner(roundMessage);
+        outcome = playRound(getPlayerChoice(), getComputerChoice());
 
         //Increments score based on outcome, if there is tie no one gets points
         if (outcome === 'player'){
