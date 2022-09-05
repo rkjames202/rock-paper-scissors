@@ -150,21 +150,21 @@ function game(){
     let playerScore = 0;
     let computerScore = 0;
 
-    //Variable to get outcome of the game
-    let outcome;
+    //Variable to get outcome of each round
+    let roundOutcome;
 
     //5 round game
     for (let i = 0; i < 5; i++){
 
         //Gets the possible winner of round
-        outcome = playRound(getPlayerChoice(), getComputerChoice());
+        roundOutcome = playRound(getPlayerChoice(), getComputerChoice());
 
         //Increments score based on outcome, if there is tie no one gets points
-        if (outcome === 'player'){
+        if (roundOutcome === 'player'){
 
             playerScore++;
 
-        }else if(outcome === 'computer'){
+        }else if(roundOutcome === 'computer'){
 
             computerScore++;
         }    
