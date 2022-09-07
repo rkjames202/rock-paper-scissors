@@ -1,0 +1,81 @@
+html {
+    box-sizing: border-box;
+    font-family: "Roboto Mono", sans-serif;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+body{
+    background-color: darkgrey;  
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.title{
+    text-align: center;
+}
+
+.container{  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.choices{
+    opacity: 1;
+    transition: opacity .2s; 
+    visibility: hidden;
+    display: flex;
+    justify-content: space-between;
+    gap: 100px;
+    margin-bottom: 30px;
+}
+
+.player_choice, .computer_choice, .final_result{
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+.final_result{
+    display: none;
+    text-align: center;
+    padding-top: 0px;
+}
+
+.game_info{
+    opacity: 1;
+    transition: opacity .2s; 
+    visibility: hidden;
+    border: 1px solid black;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: white;
+}
+
+button{
+    font-family: inherit;
+    font-weight: bold;
+}
+
+.buttons button, .reset_button button{
+    height: 50px;
+}
+
+.reset_button{
+    display: none;
+}
+
+.buttons button:hover, .reset_button button:hover{
+    transform: scale(1.2);
+}
+
+.fade{
+    opacity: 0;
+}

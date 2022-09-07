@@ -3,11 +3,43 @@
 <head>
     <meta charset="UTF -8">
     <title> Rock Paper Scissors</title>
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
 </head>
 
-<body>
 
+<body>
+    <div class="title">
+        <h1>Rock, Paper, Scissors</h1>
+        <h2>First to 5 points wins</h2>
+    </div>
+    <div class="container">
+        <div class="choices fade">
+            <div class="player_choice">
+                <p>You:</p>
+            </div>
+            <div class="computer_choice">
+                <p>Computer:</p>
+            </div> 
+        </div>
+        <div class ="buttons">
+            <button type="button" value="rock">Rock</button>
+            <button type="button" value="paper">Paper</button>
+            <button type="button" value ="scissors">Scissors</button>
+        </div>
+        <div class="reset_button">
+            <button>Play Again?</button>
+        </div>  
+        <div class="game_info fade">
+            <p class="results"></p>
+            <p class="game_count">Game: <span>0</span></p>
+            <p class="player_score">Player Score: <span>0</span></p>
+            <p class="computer_score">Computer Score: <span>0</span></p>
+        </div>  
+        <div class="final_result">
+        </div>
+    </div>
 </body>
 
 </html>
